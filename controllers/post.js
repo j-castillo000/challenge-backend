@@ -152,9 +152,48 @@ const deletePostById = async (req, res = response) => {
 };
 
 const filterPostByCategoryId = async (req, res = response) => {
+  const { id } = req.params;
   try {
-    return res.json({
-      data: response,
+    let query = `SELECT * FROM post WHERE category_id = ?`;
+    let values = [id];
+    query = mysql.format(query, values);
+    pool.query(query, (error, results) => {
+      if (error) {
+        return res.status(500).json({
+          success: false,
+          message: error,
+        });
+      }
+      return res.json({
+        success: true,
+        data: results,
+      });
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error,
+    });
+  }
+};
+
+const filterPostByTagId = async (req, res = response) => {
+  const { id } = req.params;
+  try {
+    let query = `SELECT * FROM post WHERE tag_id = ?`;
+    let values = [id];
+    query = mysql.format(query, values);
+    pool.query(query, (error, results) => {
+      if (error) {
+        return res.status(500).json({
+          success: false,
+          message: error,
+        });
+      }
+      return res.json({
+        success: true,
+        data: results,
+      });
     });
   } catch (error) {
     return res.status(500).json({
@@ -171,4 +210,6 @@ module.exports = {
   getAllPostsByUser,
   updatePostById,
   deletePostById,
+  filterPostByCategoryId,
+  filterPostByTagId,
 };

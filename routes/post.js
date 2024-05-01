@@ -8,6 +8,8 @@ const {
   getAllPostsByUser,
   updatePostById,
   deletePostById,
+  filterPostByCategoryId,
+  filterPostByTagId,
 } = require("../controllers/post");
 
 const router = Router();
@@ -18,5 +20,7 @@ router.get("/post", validateToken, getAllPosts);
 router.get("/post/user/:id", validateToken, getAllPostsByUser);
 router.put("/post/:id", validateToken, updatePostById);
 router.delete("/post/:id", validateToken, deletePostById);
+router.get("/post/category/:id", validateToken, filterPostByCategoryId);
+router.get("/post/tag/:id", validateToken, filterPostByTagId);
 
 module.exports = router;
