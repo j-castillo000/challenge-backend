@@ -72,8 +72,8 @@ SELECT ONLY ONE
 ### True or false: You should put a fake UUID into the example code (instead of just the text "UUID") as a placeholder.
 
 SELECT ONLY ONE
-1. **TRUE**
-2. FALSE
+1. TRUE
+2. **FALSE**
 
 > 5. You're building code to handle errors issued from a remote API server. The response may or may not have an error.
 
@@ -90,7 +90,7 @@ SELECT ONLY ONE
 
 SELECT ONLY ONE
 1. Write the error handling the same way in both classes, but keep it to one line of code.
-2. Make a trait to handle errors so it'll collect errors in any class that uses it.
+2. **Make a trait to handle errors so it'll collect errors in any class that uses it.**
 3. Make a driver-based error provider to handle errors in all classes that can issue errors.
 
 > 7. You need to name the private method in your class that handles loopingthrough eCommerce products to collect and parse data. That data gets stored in an array and set as a class property.
