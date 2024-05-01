@@ -22,8 +22,8 @@ CREATE TABLE blog.`user` (
 CREATE TABLE blog.post (
     post_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
-    title INT,
-    content INT,
+    title VARCHAR(250),
+    content VARCHAR(4000),
     created_at DATETIME DEFAULT (CURRENT_TIMESTAMP) NOT NULL,
     updated_at DATE,
     deleted_at DATETIME,
